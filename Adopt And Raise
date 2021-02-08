@@ -1,0 +1,4 @@
+local A_1 = "AwardCash"
+local A_2 = "99999999999999"
+local Event = game:GetService("ReplicatedStorage").NetworkEvent
+Event:FireServer(A_1, A_2)
