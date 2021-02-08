@@ -1,0 +1,76 @@
+local lib = loadstring(game:HttpGet"https://tesdevelopment.github.io/UiLib.lua")()
+ 
+local window = lib:CreateWindow("Autofarm")
+ 
+ 
+window:AddButton("AutoFarm toggle",function()
+    if _G.Farm then
+        _G.Farm = false
+    else
+        _G.Farm = true
+    end
+end)
+ 
+_G.FarmRokaka = false
+window:AddToggle("Rokaka", function()
+    _G.FarmRokaka = not _G.FarmRokaka
+    print(tostring(_G.FarmRokaka).." Is the value for rokaka farm")
+end)
+ 
+_G.FarmNote = false
+window:AddToggle("Banknote", function()
+    _G.FarmNote = not _G.FarmNote
+    print(tostring(_G.FarmNote).." Is the value for Note farm")
+end)
+ 
+_G.FarmNote = false
+window:AddToggle("Arrow", function()
+    _G.FarmArrow = not _G.FarmArrow
+    print(tostring(_G.FarmArrow).." Is the value for Arrow farm")
+end)
+ 
+ 
+while true do
+    wait(1)
+    if _G.Farm then
+        print"AutoFarm on"
+        for i,v in pairs(game.Workspace.ItFolder:GetChildren()) do
+            if v.Name == "Banknote" then
+                if _G.FarmNote then
+                    print"Found Note"
+                    local handlock = v.Handle
+                    local returnspot = Game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                    Game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = handlock.CFrame
+                    wait(1)
+                    local success, response = pcall(function()
+                        local Tool = game.Players.LocalPlayer.Character.Banknote
+                        print"Tool val set"
+                        Tool:Activate()
+                        print"Used"
+                    end)
+                    Game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = returnspot
+                end 
+            elseif v.Name == "Rokakaka Fruit" then
+                if _G.FarmRokaka then
+                    print"Found Fruit"
+                    if v:FindFirstChild("Handle") then
+                        local returnspot = Game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
+                        wait(.5)
+                        Game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = returnspot
+                    end
+                end
+            elseif v.Name == "Arrow" then
+                print"arrow"
+                if _G.FarmArrow then
+                    if v:FindFirstChild("Handle") then
+                        local returnspot = Game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
+                        wait(.5)
+                        Game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = returnspot
+                    end
+                end
+            end
+        end
+    end
+end
