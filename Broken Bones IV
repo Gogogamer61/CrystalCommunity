@@ -1,0 +1,63 @@
+-- Make sure sub me https://www.youtube.com/channel/UC-q35LWc5w_onjK0A4OrLUw?view_as=subscriber
+-- soon l will update
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local Credit = Instance.new("TextLabel")
+local GlitchBlock = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.Position = UDim2.new(0.00493522501, 0, 0.425061435, 0)
+Frame.Size = UDim2.new(0, 191, 0, 194)
+Frame.Style = Enum.FrameStyle.RobloxRound
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.00523560122, 0, 0.0119760446, 0)
+TextLabel.Size = UDim2.new(0, 175, 0, 27)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "LUCKY BLOCK Battlegrounds GUI"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 15.000
+
+Credit.Name = "Credit"
+Credit.Parent = Frame
+Credit.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Credit.BackgroundTransparency = 1.000
+Credit.Position = UDim2.new(-9.31322575e-10, 0, 0.832335353, 0)
+Credit.Size = UDim2.new(0, 175, 0, 27)
+Credit.Font = Enum.Font.SourceSans
+Credit.Text = "GUI BY: WRose "
+Credit.TextColor3 = Color3.fromRGB(255, 255, 255)
+Credit.TextSize = 15.000
+
+GlitchBlock.Name = "GlitchBlock"
+GlitchBlock.Parent = ScreenGui
+GlitchBlock.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GlitchBlock.Position = UDim2.new(0.00493522501, 0, 0.469287544, 0)
+GlitchBlock.Size = UDim2.new(0, 191, 0, 50)
+GlitchBlock.Style = Enum.ButtonStyle.RobloxRoundDropdownButton
+GlitchBlock.Font = Enum.Font.SourceSans
+GlitchBlock.Text = "GlitchBlock"
+GlitchBlock.TextColor3 = Color3.fromRGB(0, 0, 0)
+GlitchBlock.TextSize = 14.000
+
+-- Scripts:
+
+local function OJTG_fake_script() -- GlitchBlock.LocalScript 
+    local script = Instance.new('LocalScript', GlitchBlock)
+
+    script.Parent.MouseButton1Click:Connect(function()
+        game.ReplicatedStorage.SpawnGalaxyBlock:FireServer()
+    end)
+end
+coroutine.wrap(OJTG_fake_script)()
